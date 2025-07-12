@@ -19,8 +19,9 @@ def populer_news():
     populer = soup.find('div',{'class':'grid-row list-content'})
     # print(populer)
     titles = populer.find_all(attrs={'class':'media__text'})
-    for t in titles:
-        print(t.text)
+    images = populer.find_all(attrs={'class':'media__image'})
+    for i in images:
+        print(i.find('a').find('img')['title'])
     # print(titles)
 
 

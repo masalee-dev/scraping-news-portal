@@ -12,14 +12,14 @@
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Populer News</a>
+  <a class="navbar-brand" href="/">Populer News</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Detik scraper</a>
+        <a class="nav-link" href="/detik-populer">Detik scraper</a>
       </li>
     </ul>
   </div>
@@ -27,6 +27,10 @@
 <br>
 
 <div class="container">
+  {% for i in images %}
+      {{ i|safe }}
+      <a href="{{ i.find('a')['href']|safe }}">{{ i.find('a').find('img')['title']|safe}}</a>
+  {% endfor %}
 </div>
 
 </body>
