@@ -27,5 +27,12 @@ def detik_populer():
 
     return render_template('index.html', images=images)
 
+@app.route('/idr-rates')
+
+def idr_rates():
+    source = requests.get('https://www.floatrates.com/daily/idr.json')
+    json_data = source.json()
+    return render_template(('idr_rates.html', datas=json_data.values())
+
 if __name__ == '__main__':
     app.run(debug=True)
