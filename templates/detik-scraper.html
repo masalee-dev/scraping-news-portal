@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% for i in images %}
+      {{ i|safe }}
+      <a href="{{ i.find('a')['href']|safe }}">{{ i.find('a').find('img')['title']|safe}}</a>
+  {% endfor %}
+
+{% endblock %}
